@@ -1,8 +1,20 @@
 // This is your test secret API key.
 const stripe = require('stripe')('sk_test_51Oggj7Gh3q0yh3BLowB8cJAqHl3lJWFx5DiwR56OZUwZTe3m0zdvsQD25Fpq1K50KaP0y4eghb9EVttCyVnjDSqm00UuZEv0K3');
 const express = require('express');
+const { engine } = require('express-handlebars');
+const path = require('path');
 const app = express();
-app.use(express.static('public'));
+const homeRoute = require('./Develop/controllers/api/homeRoute');
+
+
+// Set up handlebars engine with main as the default layout
+app.engine('handlebars', engine({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'Develop/views'));
+app.use('/', homeRoute);
+
+app.use(express.static(path.join(__dirname, 'Develop/public')));
+
 
 const YOUR_DOMAIN = 'http://localhost:4242';
 
