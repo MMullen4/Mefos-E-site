@@ -7,11 +7,13 @@ const productRoutes = require('./product-routes');
 const cartRoutes = require('./cart-routes');
 const checkoutRoutes = require('./checkout-routes');
 const orderRoutes = require('./order-routes');
+const categoryRoutes = require('./category-routes');
 
 router.use('/users', userRoutes);
 router.use('/products', productRoutes);
 router.use('/cart', cartRoutes);
 router.use('/checkout', checkoutRoutes);
 router.use('/orders', orderRoutes);
+router.use('/categories', categoryRoutes);
 
 module.exports = router;
