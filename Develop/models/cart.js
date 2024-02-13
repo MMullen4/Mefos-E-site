@@ -19,5 +19,10 @@ cart.init(
                 model: Product,
                 key: 'id'
             },
-        }
-    },)
+        },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 1
+        },
+    })
