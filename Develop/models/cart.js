@@ -1,50 +1,23 @@
-const { Model, Datatypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Product, Datatypes } = require('sequelize');
+const { sequelize } = require('../config/db');
+import { DataTypes } from 'sequelize';
 
-class cart extends Model { }
+class cart extends Model{ }
 
 cart.init(
     {
         id: {
-            type: Datatypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+
         },
         product_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'product',
+                model: Product,
                 key: 'id'
             },
-            product_name: {
-                type: Datatypes.STRING,
-                allowNull: false
-            },
-            price: {
-                type: Datatypes.DECIMAL,
-                allowNull: false,
-                validate: {
-                    isDecimal: true
-                },
-            },
-            subtotal: {
-                type: Datatypes.DECIMAL,
-                allowNull: false,
-                validate: {
-                    isDecimal: true
-                },
-                
-            },
-        },
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'cart'
-    });
-    
-module.exports = cart;
-    
+        }
+    },)
