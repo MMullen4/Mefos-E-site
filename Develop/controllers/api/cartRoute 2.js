@@ -6,4 +6,4 @@ app.get('/cart', async (req, res) => {
     const cartItems = await cart();
     // send cart back to client
     res.send(cartItems);
-})
+});
