@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- head content -->
-    <link rel="stylesheet" href="/Develop/public/css/style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEFO'S buy and sell everything</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- navigation, header, etc. -->
+    <header>
+        <!-- Navigation bar -->
+        <nav>
+            <!-- navigation links -->
+            <a href="/">Home</a>
+            <a href="/shop">Shop</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contacts</a>
+            <!-- Conditional rendering for authentication links -->
+            {{#if loggedIn}}
+                <form action="/api/logout" method="post" class="logout-form">
+                    <button type="submit" id="logout-button" class="btn btn-secondary">Logout</button>
+                </form>
+            {{else}}
+                <a href="/login">Sign In</a>
+                <a href="/signup">Sign Up</a>
+            {{/if}}
+        </nav>
+    </header>
 
-     {{{body}}}
-    <!-- footer, scripts, etc. ... -->
+    <!-- Main content that changes for each page -->
+    {{{body}}}
+
+    <footer>
+        <!-- Footer -->
+        <p>&copy; 2024 MEFO's. All rights reserved.</p>
+    </footer>
+
    
+    <script src="/js/logout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
 </html>
