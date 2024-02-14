@@ -1,16 +1,16 @@
 const router = require('express').Router();
-const {  ProductTag, Category, Product } = require("../../models");
+const {Order, Category, Product, ProductTag } = require("../../models");
 
 router.post('/', async (req, res) => {
     try{
-        const productTag = await ProductTag.findAll({
+        const order = await order.findall({
             include: [{
                 model: Category,
                 model: Product,
+                model: ProductTag,
             }]
-
         });
-        res.json(productTag)
+        res.json(order)
     } catch (err) {
         res.status(500).json(err);
     }
