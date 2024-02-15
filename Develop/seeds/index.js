@@ -1,11 +1,11 @@
 const sequelize = require('../config/connection');
-const seedComputers = require('./computerData');
-const seedLaptops = require('./laptopData');
-const seedSmartPhones = require('./smartPhoneData');
-const seedSmartWatch = require('./smartWatchData');
+const seedComputers = require('./computer');
+const seedLaptops = require('./laptop');
+const seedSmartPhones = require('./smartPhone');
+const seedSmartWatch = require('./smartWatch');
 
 const seedAll = async () => {
-    await sequelize.sync({ force: true });
+  await sequelize.sync({ force: true });
 
   await seedComputers();
 
