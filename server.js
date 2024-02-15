@@ -1,5 +1,4 @@
 // This is your test secret API key.
-require('dotenv').config();
 const stripe = require('stripe')('sk_test_51Oggj7Gh3q0yh3BLowB8cJAqHl3lJWFx5DiwR56OZUwZTe3m0zdvsQD25Fpq1K50KaP0y4eghb9EVttCyVnjDSqm00UuZEv0K3');
 const express = require('express');
 const { engine } = require('express-handlebars');
