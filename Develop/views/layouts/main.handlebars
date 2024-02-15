@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEFO'S buy and sell everything</title>
+    <h1> MEFO's TECH Shop</h1>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -13,9 +14,7 @@
             <!-- navigation links -->
             <a href="/">Home</a>
             <a href="/shop">Shop</a>
-            <a href="/blog">Blog</a>
-            <a href="/contact">Contacts</a>
-            <!-- Conditional rendering for authentication links -->
+           
             {{#if loggedIn}}
                 <form action="/api/logout" method="post" class="logout-form">
                     <button type="submit" id="logout-button" class="btn btn-secondary">Logout</button>
